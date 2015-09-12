@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: home_care_assist_dev
+  host: localhost
+
+test:
+  <<: *default
+  database: home_care_assist_test
+  host: localhost
+
+production:
+  <<: *default
+  database: home_care_assist_proddb
+  username: home_care_assist
+  password: <%= ENV['HOME_CARE_ASSIST_DATABASE_PASSWORD'] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
+
+staging:
+  database: home_care_assist_stagedb
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
