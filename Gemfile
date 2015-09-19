@@ -13,7 +13,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'devise-async'
@@ -43,8 +42,6 @@ gem 'rack-mini-profiler', require: false
 gem 'stackprof'
 
 group :development, :test do
-  gem 'web-console', '~> 2.0'
-  gem 'pry'
   gem 'pry-byebug'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -76,7 +73,7 @@ group :test do
   gem 'webmock'
 end
 
-group :staging, :production do
+group :production do
   gem 'dragonfly-s3_data_store'
   gem 'lograge'
   gem 'rack-timeout'
