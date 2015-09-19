@@ -2,10 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 gem 'pg'
-gem 'haml'
+gem 'haml-rails'
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'autoprefixer-rails'
+gem 'geocoder'
+
 # gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
@@ -13,11 +17,10 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'autoprefixer-rails'
 gem 'devise'
 gem 'devise-async'
+
 gem 'figaro'
-gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -35,11 +38,13 @@ gem 'rack-cors'
 gem 'sidekiq'
 gem 'sinatra' # for sidekiq webview
 
-# Profiling gems
-gem 'flamegraph'
-gem 'memory_profiler'
-gem 'rack-mini-profiler', require: false
-gem 'stackprof'
+group :development do
+  # Profiling gems
+  gem 'flamegraph'
+  gem 'memory_profiler'
+  gem 'rack-mini-profiler', require: false
+  gem 'stackprof'
+end
 
 group :development, :test do
   gem 'pry-byebug'

@@ -13,3 +13,5 @@
 /tmp
 vendor/bundle
 vendor/cache
+vendor/bundle
+vendor/cache

@@ -1,0 +1,16 @@
+%nav.navbar.navbar-default.navbar-static-top{role: 'navigation'}
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#nav", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =link_to "Assisted", root_path, class: "navbar-brand"
+
+    #nav.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Caregiver', '#'
+        %li= link_to 'Find a Care', '#'
+
+

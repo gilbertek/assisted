@@ -1,0 +1,11 @@
+- unless notice.blank?
+  .cols
+    %p.message.message--notice
+      -# == %notice
+      %a.message__close.close href="#": i.icon.icon-close
+
+- unless alert.blank?
+  .cols
+    %p.message.message--alert
+      -# == alert
+      %a.message__close.close href="#": i.icon.icon-close

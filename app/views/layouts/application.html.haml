@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+
+    %meta{name: 'description', content: "#{content_for?(:meta_description) ? yield(:meta_description) : default_meta_description}"}/
+
+    %title = content_for?(:title) ? yield(:title) : default_title
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
+    = javascript_include_tag 'http://google.com/jsapi'
+    = csrf_meta_tags
+
+  %body
+    = render 'shared/nav'
+
+    - if content_for?(:featured)
+      = yield :featured
+
+    .container
+      = render "shared/messages"
+
+    .container
+      - if content_for(:page_header)
+        %h1= yield :page_header
+
+      = yield
+
+  %footer
+    %p.pull-right
+      %a{href: "#"} Back to top
+    %p
+      &copy; 2014 Assisted, Inc. &middot;
+      %a{href: "#"} Privacy &middot;
+      %a{href: "#"} Terms
+    = yield :footer
