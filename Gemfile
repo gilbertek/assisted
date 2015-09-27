@@ -53,7 +53,7 @@ group :development, :test do
   gem 'timecop'
   gem 'bullet'
   gem 'better_errors'
-  gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :rbx]
+  gem 'binding_of_caller', platforms: [:mri_20, :rbx]
   gem 'guard-rspec'
   gem 'quiet_assets'
   gem 'letter_opener' # Read Actionmailer emails instead of sending
