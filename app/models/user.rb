@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :async,
          :recoverable, :rememberable, :trackable, :validatable, :lockable
 
-  has_one :profile
+  validates :first_name, :last_name, presence: true
+
+  has_one :profile, dependent: :destroy
+  delegate :first_name, :last_name, to: :profile
+  accepts_nested_attributes_for :profile
 
 end

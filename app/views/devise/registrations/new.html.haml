@@ -1,21 +1,39 @@
 %h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'registration-form' }) do |f|
+
+  %h1 Your profile
+  %h4 We'd like to get to know you a bit.
+
   = devise_error_messages!
+
+  = f.fields_for :profile do |pf|
+    .field
+    = pf.label :first_name
+    = pf.text_field :first_name, { autofocus: true, placeholder: "First name"}
+
+    .field
+    = pf.label :last_name
+    = pf.text_field :last_name, { placeholder: "Last name"}
+
   .field
     = f.label :email
     %br/
-    = f.email_field :email, autofocus: true
+    = f.email_field :email, {autofocus: true, placeholder: "Email" }
+
   .field
     = f.label :password
     - if @minimum_password_length
       %em
         (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
+    %br
+    = f.password_field :password, { autocomplete: "off", placeholder: "Password"}
+
   .field
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.password_field :password_confirmation, { autocomplete: "off", placeholder: "Password Confirmation"}
+
   .actions
-    = f.submit "Sign up"
+    = f.submit "Sign up", { class: 'button' }
 = render "devise/shared/links"

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  namespace :users do
-    resources :accounts, only: [:show, :update, :edit, :create]
-    resources :settings, only: [:show, :update, :edit]
-  end
+  # namespace :users do
+  #   resources :accounts, only: [:show, :update, :edit, :create]
+  #   resources :settings, only: [:show, :update, :edit]
+  # end
 
-  devise_for :users
-
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  resources :users
 
   get 'about-us', to: 'pages#about'
   get 'contact', to: 'pages#contact'
